@@ -19,5 +19,4 @@ jobs:
         account_type: org
         timeout: 600
         debug: true
-#         black_list: "mysql-server,kunpeng-mpam,hadoop,kunpengcompute.github.io"
         white_list: hadoop
