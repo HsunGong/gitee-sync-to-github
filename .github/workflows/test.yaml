@@ -1,0 +1,24 @@
+name: Gitee repos mirror periodic job
+
+on: push
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Mirror the Github organization repos to Gitee.
+      uses: Yikun/hub-mirror-action@v1.0
+      with:
+        src: github/kunpengcompute
+        dst: gitee/hsungong
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token:  ${{ secrets.GITEE_TOKEN }}
+        account_type: org
+        timeout: 600
+        debug: true
+        force_update: true
+#         black_list: "mysql-server,kunpeng-mpam,hadoop,kunpengcompute.github.io"
+        white_list: hadoop
