@@ -1,28 +1,22 @@
-name: Gitee repos mirror periodic job
-
-on:
-  pull_request:
-    paths:
-    - '.github/workflows/**'
-    # Runs at every pull requests submitted in master branch 
-    branches: [ master ]
-
+on: push
+name: Tests / test-org-mirror
 jobs:
-  build:
-
+  run:
+    name: Run
     runs-on: alpine-latest
-
     steps:
-
-    - name: Mirror the Github organization repos to Gitee.
-      uses: Yikun/hub-mirror-action@v1.0
+    - name: Checkout source code
+      uses: actions/checkout@v1
+    - name: Mirror Github to Gitee
+      uses: ./.
       with:
-        src: github/kunpengcompute
+        src: github/hub-mirror-action
         dst: gitee/hsungong
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
-        dst_token:  ${{ secrets.GITEE_TOKEN }}
+        dst_token: ${{ secrets.GITEE_TOKEN }}
         account_type: org
-        timeout: 600
-        debug: true
+        # Only sync normal repo
+        black_list: 'test'
+        white_list: 'normal,test,empty'
         force_update: true
-        black_list: "mysql-server,kunpeng-mpam,hadoop,kunpengcompute.github.io"
+        debug: true
