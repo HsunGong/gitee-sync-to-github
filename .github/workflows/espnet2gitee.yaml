@@ -12,11 +12,17 @@ jobs:
     - name: Mirror the Github organization repos to Gitee.
       uses: Yikun/hub-mirror-action@v1.0
       with:
-        src: github/kunpengcompute
+        src: github/espnet
         dst: gitee/hsungong
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token:  ${{ secrets.GITEE_TOKEN }}
-        account_type: org
+        account_type: user
         timeout: 600
         debug: true
-        white_list: hadoop
+        white_list: espnet
+        force_update: true
+        
+        
+        
+        
+        
