@@ -8,4 +8,3 @@ steps:
     dst_token: ${{ secrets.GITEE_TOKEN }}
     account_type: user
     white_list: "master"
-    debug: true
