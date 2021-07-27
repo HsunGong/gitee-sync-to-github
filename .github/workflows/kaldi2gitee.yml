@@ -2,7 +2,7 @@ name: Gitee repos mirror periodic job
 
 on:
   schedule:
-  - cron: "0 2 * * *"
+  - cron: "0 2 */15 * *"
 
 jobs:
   build:
