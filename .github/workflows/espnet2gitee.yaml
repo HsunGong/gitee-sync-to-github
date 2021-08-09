@@ -23,7 +23,7 @@ jobs:
         timeout: 600
         debug: true
         white_list: espnet
-        force_update: true
+        force_update: false
         
         
         
