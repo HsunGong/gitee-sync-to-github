@@ -18,7 +18,7 @@ jobs:
 
     steps:
 
-    - name: Mirror the Github organization repos to Gitee.
+    - name: Wenet
       uses: Yikun/hub-mirror-action@v1.0
       with:
         src: github/wenet-e2e
