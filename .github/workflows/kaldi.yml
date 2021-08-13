@@ -3,7 +3,11 @@ name: Gitee repos mirror periodic job
 on:
   schedule:
   - cron: "0 2 */15 * *"
-
+  push:
+    # Sequence of patterns matched against refs/heads
+    paths:
+      - '.github/workflows/kaldi.yaml'
+      
 jobs:
   build:
 
@@ -11,7 +15,7 @@ jobs:
 
     steps:
 
-    - name: Mirror the Github organization repos to Gitee.
+    - name: kaldi
       uses: Yikun/hub-mirror-action@v1.0
       with:
         src: github/kaldi-asr
@@ -22,6 +26,6 @@ jobs:
         timeout: 600
         debug: true
         white_list: kaldi
-        force_update: true
+        force_update: false
         
         
