@@ -4,6 +4,11 @@ name: Gitee repos mirror periodic job
 on:
   schedule:
   - cron: "0 2 */2 * *"
+  push:
+    # Sequence of patterns matched against refs/heads
+    branches:    
+      # Push events on main branch
+      - master
 
 
 jobs:
