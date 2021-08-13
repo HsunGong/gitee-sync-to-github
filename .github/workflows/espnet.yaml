@@ -3,7 +3,10 @@ name: Gitee repos mirror periodic job
 on:
   schedule:
   - cron: "0 2 */2 * *"
-
+  push:
+    # Sequence of patterns matched against refs/heads
+    paths:
+      - '.github/workflows/espnet.yaml'
 
 jobs:
   build:
@@ -12,7 +15,7 @@ jobs:
 
     steps:
 
-    - name: Mirror the Github organization repos to Gitee.
+    - name: ESPnet
       uses: Yikun/hub-mirror-action@v1.0
       with:
         src: github/espnet
