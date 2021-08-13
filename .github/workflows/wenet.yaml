@@ -1,0 +1,28 @@
+
+name: Gitee repos mirror periodic job
+
+on:
+  schedule:
+  - cron: "0 2 */2 * *"
+
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: Mirror the Github organization repos to Gitee.
+      uses: Yikun/hub-mirror-action@v1.0
+      with:
+        src: github/wenet-e2e
+        dst: gitee/hsungong
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token:  ${{ secrets.GITEE_TOKEN }}
+        account_type: user
+        timeout: 600
+        debug: true
+        white_list: wenet
+        force_update: false
+        
