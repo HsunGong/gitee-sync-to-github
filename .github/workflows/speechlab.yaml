@@ -15,10 +15,10 @@ jobs:
 
     steps:
 
-    - name: ESPnet
+    - name: speechlab
       uses: Yikun/hub-mirror-action@v1.0
       with:
-        src: github/hsungong
+        src: github/HsunGong
         dst: gitee/hsungong
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token:  ${{ secrets.GITEE_TOKEN }}
