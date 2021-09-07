@@ -1,5 +1,4 @@
-
-name: Gitee repos mirror periodic job
+name: SpeechLab
 
 on:
   schedule:
@@ -7,7 +6,7 @@ on:
   push:
     # Sequence of patterns matched against refs/heads
     paths:
-      - '.github/workflows/wenet.yaml'
+      - '.github/workflows/speechlab.yaml'
 
 jobs:
   build:
@@ -16,16 +15,16 @@ jobs:
 
     steps:
 
-    - name: Wenet
+    - name: ESPnet
       uses: Yikun/hub-mirror-action@v1.0
       with:
-        src: github/wenet-e2e
+        src: github/hsungong
         dst: gitee/hsungong
         dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
         dst_token:  ${{ secrets.GITEE_TOKEN }}
         account_type: user
         timeout: 600
         debug: true
-        white_list: wenet
+        white_list: speechlab
         force_update: false
         
