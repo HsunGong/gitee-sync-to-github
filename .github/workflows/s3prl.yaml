@@ -1,5 +1,4 @@
-name: Gitee repos mirror periodic job
-
+name: s3prl
 on:
   schedule:
   - cron: "0 2 */2 * *"
