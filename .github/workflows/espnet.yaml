@@ -16,7 +16,7 @@ jobs:
     steps:
 
     - name: ESPnet
-      uses: Yikun/hub-mirror-action@v1.0
+      uses: Yikun/hub-mirror-action@v1.1
       with:
         src: github/espnet
         dst: gitee/hsungong
