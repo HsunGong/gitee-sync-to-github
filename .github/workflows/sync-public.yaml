@@ -1,0 +1,58 @@
+name: sync-public
+
+on:
+  schedule:
+  - cron: "0 2 */2 * *"
+  push:
+    # Sequence of patterns matched against refs/heads
+    paths:
+      - '.github/workflows/sync-public.yaml'
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+    - name: ESPnet
+      uses: Yikun/hub-mirror-action@master
+      with:
+        src: github/espnet
+        dst: gitee/hsungong
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token:  ${{ secrets.GITEE_TOKEN }}
+        account_type: user
+        timeout: 600
+        debug: true
+        white_list: espnet
+        force_update: false
+        
+        
+    - name: kaldi
+      uses: Yikun/hub-mirror-action@master
+      with:
+        src: github/kaldi-asr
+        dst: gitee/hsungong
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token:  ${{ secrets.GITEE_TOKEN }}
+        account_type: user
+        timeout: 600
+        debug: true
+        white_list: kaldi
+        force_update: false
+
+    - name: s3prl
+      uses: Yikun/hub-mirror-action@master
+      with:
+        src: github/s3prl
+        dst: gitee/hsungong
+        dst_key: ${{ secrets.GITEE_PRIVATE_KEY }}
+        dst_token:  ${{ secrets.GITEE_TOKEN }}
+        account_type: user
+        timeout: 600
+        debug: true
+        white_list: s3prl
+        force_update: false
+        
+        
