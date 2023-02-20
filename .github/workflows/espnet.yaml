@@ -1,4 +1,4 @@
-name: EspNET
+name: ESPnet
 
 on:
   schedule:
